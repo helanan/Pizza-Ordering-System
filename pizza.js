@@ -77,7 +77,7 @@ console.log ("ourPepp", spicyPepp );
 var bananaPepp = new BananaPepper();
 
 var order01Toppings = [bananaPepp, spicyPepp];
-console.log("toppinga arr?", order01Toppings);
+console.log("order one is ready!", order01Toppings);
 var order01Pizza = new DeepDish(...order01Toppings);
 console.log("Pizza", order01Pizza);
 order01Pizza.setCrustThickness(3);
