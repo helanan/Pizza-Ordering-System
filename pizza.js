@@ -7,6 +7,36 @@ var Order = function() {
 var Pizza = function() {
 	this.toppings = null;
 	this.crustThickness = 1;
+}
+
+Pizza.prototype.setCrustThickness = function(thickness) {
+	this.crustThickness = this.crustThickness * thickness
+}
+
+Pizza.prototype.setToppings = function(topping) {
+	this.toppings = this.toppings || [];
+	this.toppings.push(topping);
+}
+
+var DeepDish = function(toppingsArr) {
+	this.description = "Chewy and greasy, but so filling!";
+	this.setToppings.call(this, toppingsArr);
+	this.crust = this.setCrustThickness(3);
+}
+
+DeepDish.prototype = new Pizza();
+
+var TraditionalHandTossed = function() {
+}
+var Order = function() {
+	this.pizza = null;
+	this.beverage = null;
+}
+
+//root object in a prototype chain
+var Pizza = function() {
+	this.toppings = null;
+	this.crustThickness = 1;
 };
 
 Pizza.prototype.setCrustThickness = function(thickness) {
@@ -38,6 +68,7 @@ TraditionalHandTossed.prototype = new Pizza();
 // myPizza.setCrustThickness(3)
 // console.log("myPizza's crust thickness", myPizza.crustThickness );
 
+  
 // root function in a prototype chain
 var Topping = function() {
 	this.price = 1.00
@@ -46,6 +77,7 @@ var Topping = function() {
 var Pepperoni = function() {
 	this.isSpicy = false;
 }
+
 Pepperoni.prototype = new Topping();
 Pepperoni.prototype.makeSpicy = function() {
 	this.isSpicy = true;
@@ -78,6 +110,7 @@ var bananaPepp = new BananaPepper();
 
 var order01Toppings = [bananaPepp, spicyPepp];
 console.log("order one is ready!", order01Toppings);
+
 var order01Pizza = new DeepDish(...order01Toppings);
 console.log("Pizza", order01Pizza);
 order01Pizza.setCrustThickness(3);
@@ -87,6 +120,19 @@ var order01Bev = new Soda();
 order01.pizza = order01Pizza;
 order01.beverage = order01Bev;
 
-console.log("Our first order!", order01);
+console.log("order01", order01);
+
+document.getElementById("orders").innerHTML = "<li class='list-inline-item'> <b>Description:</b> " + order01.pizza.description.toString() + "</li>";
+
+//add ons code
+
+//ice conditional statement
+if (order01.beverage.hasIce = true) {
+document.getElementById("add-ons").innerHTML = "<li class='list-inline-item'> Ice <i class='fas fa-dice-d6'></i> : " + "<i class='far fa-check-circle'></i>" + "</li>";
+} else {
+document.getElementById("add-ons").innerHTML = "<li class='list-inline-item'> Ice <i class='fas fa-dice-d6'></i> : " + "<i class='far fa-times-circle'></i>" + "</li>";
+}
+
+
 
 
