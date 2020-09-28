@@ -27,6 +27,35 @@ var DeepDish = function(toppingsArr) {
 DeepDish.prototype = new Pizza();
 
 var TraditionalHandTossed = function() {
+var Order = function() {
+	this.pizza = null;
+	this.beverage = null;
+}
+
+//root object in a prototype chain
+var Pizza = function() {
+	this.toppings = null;
+	this.crustThickness = 1;
+};
+
+Pizza.prototype.setCrustThickness = function(thickness) {
+	this.crustThickness = this.crustThickness * thickness
+}
+
+Pizza.prototype.setToppings = function(topping) {
+	this.toppings = this.toppings || [];
+	this.toppings.push(topping);
+}
+
+var DeepDish = function(toppingsArr) {
+	this.description = "Chewy and greasy, but so filling!";
+	this.setToppings.call(this, toppingsArr);
+	this.crust = this.setCrustThickness(3);
+}
+
+DeepDish.prototype = new Pizza();
+
+var TraditionalHandTossed = function() {
 	this.description = "Boring, but wont offend picky eaters."
 }
 TraditionalHandTossed.prototype = new Pizza();
@@ -89,4 +118,4 @@ order01.beverage = order01Bev;
 
 console.log("Our first order!", order01);
 
-
+document.getElementById("orders").innerHTML = "<li> Description: " + order01.pizza.description.toString() + "</li>";
