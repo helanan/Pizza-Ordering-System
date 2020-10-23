@@ -6,11 +6,11 @@
   <title>pizza_prototype</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
- <body>
+<body>
   <div class="jumbotron">
-    <h1 class="display-3">Helana's Pizza Palace</h1>
+    <h1 class="display-3" id="title">Helana's Pizza Palace</h1>
     <span style="font-size: 3em; color: Tomato;">
     <i class="fas fa-pizza-slice"></i>
     </span>
@@ -27,14 +27,82 @@
     <i class="fas fa-pizza-slice"></i>
       </span>
   </div>
+   
+<!-- pizza form -->
+   <h2>Customize Your Pizza Below:</h2>
+   <form>
+  <div class="form-group">
+    <label for="pizzaFormControlInput1">First Name:</label>
+    <input type="email" class="form-control" id="pizzaFormControlInput1" placeholder="John">
+  </div><div class="form-group">
+    <label for="pizzaFormControlInput2">Last Name:</label>
+    <input type="email" class="form-control" id="pizzaFormControlInput2" placeholder="Smith">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+<!-- toppings -->
+<!--      to do: on select push to array -->
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Toppings (clt-click to select more than 1)</label>
+    <select multiple role="listbox" class="form-control" id="exampleFormControlSelect2">
+      <option class="topping_options" id="option-one">No Toppings</option>
+      <option class="topping_options" id="option-two">Pepperoni</option>
+      <option class="topping_options" id="option-three">Sausage</option>
+      <option class="topping_options" id="option-four">Ham</option>
+      <option class="topping_options" id="option-five">Chicken</option>
+     <option class="topping_options" id="option-six">Anchovies</option>
+      <option class="topping_options" id="option-seven">Onions</option>
+      <option class="topping_options" id="option-eight">Spinach</option>
+     <option class="topping_options" id="option-nine">Pineapple</option>
+      <option class="topping_options" id="option-ten">Olives</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example text area</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
 <!-- <button type="button" class="toppings btn btn-primary">Spicy Pepporoni?</button> -->
-   <h1>Your Order:</h1>
+   <h1>Your Pizza:</h1>
  <div class="card" style="width: 18rem;">
-  <img src="https://i.imgur.com/VUEGlFp.jpg" class="card-img-top" alt="...">
+  <img src="img/hawaiian-pizza (1).jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Pizza Name</h5>
     <p class="card-text" id="orders"></p>
     <p class="card-text" id="add-ons"></p>
-    <a href="#" class="btn btn-primary">Confirm Order</a>
+    <a href="#" class="btn btn-primary" id="order_button" data-target="#orderModal" data-toggle="modal" onclick="orderComplete(opt)">Confirm Order</a>
   </div>
 </div>
+   
+<!-- modals -->
+  <div class="modal" tabindex="-1" role="dialog" id="orderModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="far fa-check-square"></i> Order Confirmed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="order-conf">Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Edit Order</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="pizza.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
