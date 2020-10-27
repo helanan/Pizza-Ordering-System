@@ -1,9 +1,39 @@
 
-body {};
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
 
-/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300); */
+form {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700 !important;
+}
 
 #title {
     font-family: 'Shrikhand', cursive;  
-    font-size: 3em;
+    font-size: 5em;
+    text-align: center;
 }
+
+#onion-select {
+    width: 10%;
+    height: 10%;
+}
+
+.pizza-icon {
+    position: relative;
+    animation: fadeInAnimation ease 3s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+} 
